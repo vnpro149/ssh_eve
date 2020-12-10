@@ -23,13 +23,13 @@ def device_list(ip,sl):
     device = {
         'device_type':'cisco_ios_telnet',
         'ip':ip,
-        'port':"32769",
+        'port':32769,
         'secret':'321',
         'global_delay_factor': 2
     }
     for i in range (0,sl):
         device_copy=device.copy()                       
-        device_copy["port"]=str(int(device["port"])+i)
+        device_copy["port"]=device["port"]+i
         devices.append(device_copy)
     return devices
 def config_ssh(device):
